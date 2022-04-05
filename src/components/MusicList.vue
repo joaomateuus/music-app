@@ -1,10 +1,10 @@
 <template>
-    <div class="md:flex flex-col">
+    <div v-show="isPlaying" class="md:flex flex-col">
         <h1 class="text-white text-xl">Vue MusicApp</h1>
         <div class="md: flex flex-row justify-evenly mt-2 mb-2" v-for="music in list" :key="music.id"> 
            <div class="md: flex flex-col text-white">
                 <span class="text-green-500">{{ music.name }}</span>
-                <span >
+                <span>
                     {{ music.artistName }}
                     <span> {{ music.albumName }} - {{ music.year }}</span>
                 </span>
@@ -13,12 +13,11 @@
                 <img :src="music.src" alt="">
             </div>
         </div>
-    
-        <div>
-            <MusicPlayer />
-        </div>
-    
     </div>
+    <div>
+        <MusicPlayer :music="list[currentMusic]"/>
+    </div>
+    
 </template>
 
 <script>
@@ -29,6 +28,8 @@ export default {
     components: {MusicPlayer},
     data() {
         return{
+            isPlaying: false,
+            currentMusic: 0,
             list: [
                  {
                     id: 1,
