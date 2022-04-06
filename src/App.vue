@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container p-3 bg-black m-auto">
+  <div class="app-container p-3 bg-black m-auto" >
     <MusicList />
   </div>
 </template>
@@ -11,7 +11,13 @@ export default {
   name: 'App',
   components: {
     MusicList,
-  }
+  },
+  data() {
+    return{
+       
+    }
+   
+  },
 }
 </script>
 
@@ -19,6 +25,7 @@ export default {
 .app-container{
   width: 60vw;
   height: 90vh;
+  border-radius: 5px;
 }
 
 

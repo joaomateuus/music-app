@@ -1,16 +1,16 @@
 <template>
-    <div v-show="isPlaying" class="md:flex flex-col">
-        <h1 class="text-white text-xl">Vue MusicApp</h1>
-        <div class="md: flex flex-row justify-evenly mt-2 mb-2" v-for="music in list" :key="music.id"> 
+    <div v-show="isPlaying" class="md:flex flex-col p-4 pt-4">
+        <h1 class="text-white text-4xl m-4">Vue MusicApp</h1>
+        <div class="md: flex flex-row justify-evenly mb-2 border-2 border-white pt-2 hover:bg-gray-800" v-for="music in list" :key="music.id"> 
            <div class="md: flex flex-col text-white">
-                <span class="text-green-500">{{ music.name }}</span>
+                <span class="text-green-500 text-2xl font-bold">{{ music.name }}</span>
                 <span>
                     {{ music.artistName }}
                     <span> {{ music.albumName }} - {{ music.year }}</span>
                 </span>
            </div>
             <div class="">
-                <img :src="music.src" alt="">
+                <img :src="music.src" class="ml" alt="">
             </div>
         </div>
     </div>
