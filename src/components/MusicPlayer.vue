@@ -2,7 +2,7 @@
   <div class="md: flex flex-col content-center text-white">
       <div class="md: flex flex-row justify-between">
         <button  class="w-20 border-2 border-white rounded-md hover:bg-white hover:text-green-800 text-xl font-bold"
-        v-on:click="goback">
+        @click="goback">
           Back 
         </button>
         <h1 class="font-bold">Vue MusicApp</h1>

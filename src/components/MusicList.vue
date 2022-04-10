@@ -1,7 +1,8 @@
 <template>
-    <div v-show="isPlaying" class="md:flex flex-col p-4 pt-4">
+    <div v-show="!isPlaying" class="md:flex flex-col p-4 pt-4">
         <h1 class="text-white text-4xl m-4">Vue MusicApp</h1>
-        <div class="md: flex flex-row justify-evenly mb-2 border-2 border-white rounded-md pt-2 hover:bg-gray-800" v-for="music in list" :key="music.id"> 
+        <div class="md: flex flex-row justify-evenly mb-2 border-2 border-white rounded-md pt-2 hover:bg-gray-800"
+        v-for="(music, musicIndex) in list" :key="music.id" @click="playMusic(musicIndex)"> 
            <div class="md: flex flex-col text-white">
                 <span class="text-green-500 text-2xl font-bold">{{ music.name }}</span>
                 <span>
@@ -14,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <div v-show="isPlaying">
         <MusicPlayer :music="list[currentMusic]"
         @goback="isPlaying = !isPlaying"  />
     </div>
@@ -61,6 +62,12 @@ export default {
                 }
 
             ]
+        }
+    },
+    methods: {
+        playMusic(index) {
+            this.currentMusic = index;
+            this.isPlaying = true;
         }
     }
 }
