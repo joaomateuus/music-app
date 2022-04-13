@@ -71,10 +71,18 @@ export default {
             this.isPlaying = true;
         },
         playingNext() {
-            this.currentMusic += 1;
+            if(this.currentMusic < this.list.length -1) {
+                this.currentMusic += 1;
+            } else {
+                this.currentMusic = 0;
+            }
         },
         playingPrev() {
-            this.currentMusic -= 1;
+            if(this.currentMusic != 0) {
+                this.currentMusic -= 1;
+            } else {
+                this.currentMusic = this.list.length -1;
+            }
         }
     }
 }
