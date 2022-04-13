@@ -17,7 +17,8 @@
     </div>
     <div v-show="isPlaying">
         <MusicPlayer :music="list[currentMusic]"
-        @goback="isPlaying = !isPlaying"  />
+        @goback="isPlaying = !isPlaying"  
+        @next="playingNext()" @prev="playingPrev()"/>
     </div>
     
 </template>
@@ -68,6 +69,12 @@ export default {
         playMusic(index) {
             this.currentMusic = index;
             this.isPlaying = true;
+        },
+        playingNext() {
+            this.currentMusic += 1;
+        },
+        playingPrev() {
+            this.currentMusic -= 1;
         }
     }
 }

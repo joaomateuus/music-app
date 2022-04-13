@@ -15,9 +15,9 @@
       </div>
 
       <div class="md:flex flex-row content-center justify-center space-x-12 pt-8 mr-8">
-        <button class="border-2 border-white rounded-full h-14 w-14 bg-white pt-4"></button>
+        <button class="border-2 border-white rounded-full h-14 w-14 bg-white pt-4" @click="prev"></button>
         <button class="border-2 border-white rounded-full h-14 w-14 pl-4 hover:bg-green-800 hover:border-green-800 bg-white"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-512.png" class="h-6 w-6" alt=""></button>
-        <button class="border-2 border-white rounded-full h-14 w-14 pl-4 bg-white hover:bg-black"><img src="https://findicons.com/files/icons/770/token_dark/256/media_player.png" class="h-6 w-6" alt=""></button>
+        <button class="border-2 border-white rounded-full h-14 w-14 pl-4 bg-white hover:bg-black" @click="next"><img src="https://findicons.com/files/icons/770/token_dark/256/media_player.png" class="h-6 w-6" alt=""></button>
       </div>
   </div>
 </template>
@@ -37,10 +37,16 @@ export default {
     },
 
   },
-  emits: ['goback'],
+  emits: ['goback', 'next', 'prev'],
   methods: {
       goback(){
         this.$emit('goback');
+      },
+      next() {
+        this.$emit('next');
+      },
+      prev() {
+        this.$emit('prev');
       }
   }
 }
